@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personalised Beer Filter — Heineken-stijl Wireframe</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Sticky top nav -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <button class="tab is-active" data-target="hero">Home</button>
+      <button class="tab" data-target="step1">1</button>
+      <button class="tab" data-target="step2">2</button>
+      <button class="tab" data-target="step3">3</button>
+      <button class="tab" data-target="step4">4</button>
+      <button class="tab" data-target="step5">5</button>
+      <button class="tab" data-target="step6">6</button>
+      <button class="tab" data-target="step7">7</button>
+    </div>
+  </header>
+
+  <!-- Horizontal scroller -->
+  <main id="scroller" class="scroller">
+    <div class="track">
+      <!-- HERO = images/home.jpg -->
+      <section id="hero" class="card card--hero" data-frame>
+        <div class="hero">
+          <div class="hero__visual">
+            <div class="hero__photo">
+              <img src="images/home.jpg" alt="Proostmoment in Amsterdams café" class="img-cover">
+            </div>
+          </div>
+          <div class="hero__content">
+            <h1>Personalised Beer Filter</h1>
+            <p>Co-creëer bierviltjes die passen bij Amsterdamse venues. Clean, snel en volledig in Heineken-stijl.</p>
+            <button class="btn btn--primary" data-target="step1">Start co-creatie</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAP 1 = images/sfeer.jpg -->
+      <section id="step1" class="card" data-frame>
+        <h2>Stap 1 · Start / Introductie</h2>
+        <div class="grid grid--split">
+          <div class="photo">
+            <img src="images/sfeer.jpg" alt="Barshot met Amstel biertjes" class="img-cover">
+          </div>
+          <div class="panel">
+            <p>Intro copy en korte benefit highlights in Heineken-stijl.</p>
+            <button class="btn btn--primary" data-target="step2">Volgende</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAP 2 = geen afbeelding -->
+      <section id="step2" class="card" data-frame>
+        <h2>Stap 2 · Profiel &amp; Context</h2>
+        <div class="form-grid">
+          <input class="input" placeholder="Naam van de zaak" />
+          <select class="input"><option>Wijk</option><option>De Pijp</option><option>Jordaan</option><option>Noord</option></select>
+          <select class="input"><option>Type locatie</option><option>Bruine kroeg</option><option>Cocktailbar</option><option>Eetcafé</option></select>
+          <select class="input"><option>Event / Seizoen</option><option>Koningsdag</option><option>Pride</option><option>Winter</option></select>
+        </div>
+      </section>
+
+      <!-- STAP 3 = merken (images/*.png|jpg) -->
+      <section id="step3" class="card" data-frame>
+        <h2>Stap 3 · Kies je merk</h2>
+        <div class="brands">
+          <button class="brand" data-brand="Amstel">
+            <img src="images/amstel.png" alt="Amstel">
+          </button>
+          <button class="brand" data-brand="Birra Moretti">
+            <img src="images/birra-moretti.jpg" alt="Birra Moretti">
+          </button>
+          <button class="brand" data-brand="Brand">
+            <img src="images/brand.png" alt="Brand">
+          </button>
+          <button class="brand" data-brand="Heineken">
+            <img src="images/heineken.png" alt="Heineken">
+          </button>
+          <button class="brand" data-brand="Affligem">
+            <img src="images/affligem.png" alt="Affligem">
+          </button>
+          <button class="brand" data-brand="Texels">
+            <img src="images/texels.png" alt="Texels">
+          </button>
+        </div>
+        <p class="hint">Klik een merk om door te gaan naar personaliseren.</p>
+      </section>
+
+      <!-- STAP 4 = coaster (images/coaster.jpg) -->
+      <section id="step4" class="card" data-frame>
+        <h2>Stap 4 · Personaliseer je viltje</h2>
+        <div class="grid grid--editor">
+          <div class="editor">
+            <input id="coasterText" class="input" placeholder="Tekst op viltje (bijv. ‘Groeten uit de Jordaan!’)" />
+            <div class="row">
+              <input id="colorPick" class="color" type="color" value="#00833E" />
+              <select id="brandSelect" class="input">
+                <option>Heineken</option>
+                <option>Amstel</option>
+                <option>Brand</option>
+                <option>Desperados</option>
+                <option>Bira Moretti</option>
+                <option>Oedipus</option>
+                <option>Affligem</option>
+                <option>Texels</option>
+              </select>
+            </div>
+            <div class="grid grid--four">
+              <label class="upload">Logo upload<input type="file" hidden /></label>
+              <label class="upload">Afbeeldingen<input type="file" hidden multiple /></label>
+              <label class="upload">Buurticonen<input type="file" hidden multiple /></label>
+              <button id="addQR" class="btn">QR naar agenda</button>
+            </div>
+          </div>
+
+          <div class="preview">
+            <div class="coaster-wrap">
+              <img id="coasterImg" src="images/coaster.jpg" alt="Bierviltje" class="coaster-img">
+              <span id="coasterLabel" class="coaster-text">Groeten uit de Jordaan!</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAP 5 = zelfde coaster -->
+      <section id="step5" class="card" data-frame>
+        <h2>Stap 5 · Preview &amp; Feedback</h2>
+        <div class="grid grid--split">
+          <div class="photo">
+            <img src="images/coaster.jpg" alt="Voorbeeld bierviltje" class="img-cover">
+          </div>
+          <textarea class="input area" placeholder="Feedback van ondernemer / accountmanager..."></textarea>
+        </div>
+      </section>
+
+      <!-- STAP 6 -->
+      <section id="step6" class="card" data-frame>
+        <h2>Stap 6 · Goedkeuren &amp; Bestellen</h2>
+        <div class="row">
+          <div class="field">
+            <label>Aantal viltjes</label>
+            <input id="qty" type="number" class="input" value="500" />
+          </div>
+          <button class="btn btn--primary" data-target="step7">Bestel nu</button>
+        </div>
+      </section>
+
+      <!-- STAP 7 -->
+      <section id="step7" class="card" data-frame>
+        <h2>Stap 7 · Overzicht &amp; Herhaling</h2>
+        <div class="table">
+          <div class="table__head">
+            <div>Kroeg</div><div>Status</div><div>Event</div><div>Herhaling</div>
+          </div>
+          <div class="table__row">
+            <div>Café Jordaan</div><div>Goedgekeurd</div><div>Pride 2025</div><div class="accent">Juli 2026</div>
+          </div>
+          <div class="table__row">
+            <div>Bar De Pijp</div><div>In bewerking</div><div>Winter 2025</div><div class="muted">Nog niet gepland</div>
+          </div>
+        </div>
+        <div class="end">
+          <button class="btn btn--primary" data-target="hero">Nieuwe co-creatie starten</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
